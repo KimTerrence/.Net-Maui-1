@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Activity_1.MainPage">
+
+    <ScrollView>
+       
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+            <!--Welcome-->
+            <StackLayout x:Name="WelcomeSreen" IsVisible="Visible">
+                <Label Text="Select Role" FontSize="Title" />
+                <Button Text="Taker" Clicked="GoTaker" />
+                <Label Text="Or" FontSize="Small" />
+                <Button Text="Admin" Clicked="GoLogin" />
+            </StackLayout>
+            <!--Login-->
+            <StackLayout x:Name="LoginScreen" IsVisible="Hidden">
+                <Label Text="Login" FontSize="Title" />
+                <Label Text="Username" FontSize="Default" />
+                <Entry x:Name="username" />
+                <Label Text="Login" FontSize="Default" />
+                <Entry x:Name="Password" />
+                <Button Text="Login" Clicked="LoginClk" Margin="5"/>
+                <Button Text="Go back" Clicked="Exit" Margin="5"/>
+            </StackLayout>
+            <!--Taker-->
+            <StackLayout x:Name="TakerScreen" IsVisible="Hidden">
+                <Label Text="Takers" FontSize="Title" />
+                <Label Text="Enter your fullname" FontSize="Default" />
+                <Entry x:Name="TakerName"/>
+                <Label Text="Select Level" FontSize="Default" />
+                <Picker>
+                    <Picker.Items>
+                        <x:String>Grade 12</x:String>
+                        <x:String>ALS</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Label Text="Select Degree Program" FontSize="Default" />
+                <Picker>
+                    <Picker.Items>
+                        <x:String>BACHELOR OF SCIENCE IN AGRICULTURE</x:String>
+                        <x:String>BACHELOR OF SCIENCE IN ACCOUNTING INFORMATION SYSTEM</x:String>
+                        <x:String>BACHELOR OF SCIENCE IN CRIMINOLOGY</x:String>
+                        <x:String>BACHELOR OF SCIENCE IN HOSPITALITY MANAGEMENT</x:String>
+                        <x:String>BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY</x:String>
+                        <x:String>BACHELOR OF ELEMENTARY EDUCATION</x:String>
+                        <x:String>BACHELOR OF SECONDARY EDUCATION</x:String>
+
+                    </Picker.Items>
+                </Picker>
+                <Button Text="Proceed " Clicked="Exit" Margin="5 "/>
+                <Button Text="Exit" Clicked="Exit" BackgroundColor="red" TextColor="White" Margin="5"/>
+            </StackLayout>
+        </VerticalStackLayout>
+       
+    </ScrollView>
+
+</ContentPage>
