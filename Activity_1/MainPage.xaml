@@ -4,7 +4,7 @@
              x:Class="Activity_1.MainPage">
 
     <ScrollView>
-       
+
         <VerticalStackLayout Padding="30,0" Spacing="25">
             <!--Welcome-->
             <StackLayout x:Name="WelcomeSreen" IsVisible="Visible">
@@ -19,7 +19,7 @@
                 <Label Text="Username" FontSize="Default" />
                 <Entry x:Name="username" />
                 <Label Text="Login" FontSize="Default" />
-                <Entry x:Name="Password" />
+                <Entry x:Name="password" />
                 <Button Text="Login" Clicked="LoginClk" Margin="5"/>
                 <Button Text="Go back" Clicked="Exit" Margin="5"/>
             </StackLayout>
@@ -29,30 +29,77 @@
                 <Label Text="Enter your fullname" FontSize="Default" />
                 <Entry x:Name="TakerName"/>
                 <Label Text="Select Level" FontSize="Default" />
-                <Picker>
-                    <Picker.Items>
-                        <x:String>Grade 12</x:String>
-                        <x:String>ALS</x:String>
-                    </Picker.Items>
+                <Picker x:Name="LevePick">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Grade 12</x:String>
+                            <x:String>ALS</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
                 </Picker>
                 <Label Text="Select Degree Program" FontSize="Default" />
-                <Picker>
-                    <Picker.Items>
-                        <x:String>BACHELOR OF SCIENCE IN AGRICULTURE</x:String>
-                        <x:String>BACHELOR OF SCIENCE IN ACCOUNTING INFORMATION SYSTEM</x:String>
-                        <x:String>BACHELOR OF SCIENCE IN CRIMINOLOGY</x:String>
-                        <x:String>BACHELOR OF SCIENCE IN HOSPITALITY MANAGEMENT</x:String>
-                        <x:String>BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY</x:String>
-                        <x:String>BACHELOR OF ELEMENTARY EDUCATION</x:String>
-                        <x:String>BACHELOR OF SECONDARY EDUCATION</x:String>
-
-                    </Picker.Items>
+                <Picker x:Name="CollegePick" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}" >
+                            <x:String>BACHELOR OF SCIENCE IN AGRICULTURE</x:String>
+                            <x:String>BACHELOR OF SCIENCE IN ACCOUNTING INFORMATION SYSTEM</x:String>
+                            <x:String>BACHELOR OF SCIENCE IN CRIMINOLOGY</x:String>
+                            <x:String>BACHELOR OF SCIENCE IN HOSPITALITY MANAGEMENT</x:String>
+                            <x:String>BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY</x:String>
+                            <x:String>BACHELOR OF ELEMENTARY EDUCATION</x:String>
+                            <x:String>BACHELOR OF SECONDARY EDUCATION</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
                 </Picker>
-                <Button Text="Proceed " Clicked="Exit" Margin="5 "/>
+                <Button Text="Proceed " Clicked="Submit" Margin="5 "/>
+                <Button Text="Exit" Clicked="Exit" BackgroundColor="red" TextColor="White" Margin="5"/>
+            </StackLayout>
+            <!--admin-->
+            <StackLayout x:Name="AdminScreen" IsVisible="Hidden">
+                <Label Text="Admin" FontSize="Title"/>
+                
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="ID" FontAttributes="Bold" Grid.Column="1"/>
+                        <Label Text="Fullname" FontAttributes="Bold" Grid.Column="2"/>
+                        <Label Text="Level" FontAttributes="Bold" Grid.Column="3"/>
+                        <Label Text="College" FontAttributes="Bold" Grid.Column="4"/>
+                    </Grid>
+             
+                <ListView x:Name="dataListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding Id}" Grid.Column="1"/>
+                                    <Label Text="{Binding Taker}" Grid.Column="2"/>
+                                    <Label Text="{Binding LevelPick}" Grid.Column="3"/>
+                                    <Label Text="{Binding CollegePick}" Grid.Column="4"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
                 <Button Text="Exit" Clicked="Exit" BackgroundColor="red" TextColor="White" Margin="5"/>
             </StackLayout>
         </VerticalStackLayout>
-       
     </ScrollView>
 
 </ContentPage>
