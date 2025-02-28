@@ -9,6 +9,7 @@
             <!--Welcome-->
             <StackLayout x:Name="WelcomeSreen" IsVisible="Visible">
                 <Label Text="Select Role" FontSize="Title" />
+                <Label Text="Select Role" FontSize="Title" />
                 <Button Text="Taker" Clicked="GoTaker" />
                 <Label Text="Or" FontSize="Small" />
                 <Button Text="Admin" Clicked="GoLogin" />
