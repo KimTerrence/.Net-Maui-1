@@ -3,83 +3,102 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Activity_1.MainPage">
 
+ <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
     <ScrollView>
-
         <VerticalStackLayout Padding="30,0" Spacing="25">
-            <!--Welcome-->
-            <StackLayout x:Name="WelcomeSreen" IsVisible="Visible">
-                <Label Text="Select Role" FontSize="Title" />
-                <Label Text="Select Role" FontSize="Title" />
-                <Button Text="Taker" Clicked="GoTaker" />
-                <Label Text="Or" FontSize="Small" />
-                <Button Text="Admin" Clicked="GoLogin" />
+            <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+            <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+            <!--Landing Screen-->
+            <StackLayout x:Name="LandingSreen" IsVisible="Visible" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="500">
+                <Label Text="Kim Terrence Quines" TextColor="DimGray"/>
+                <Label Text="Continue as " FontSize="Title" />
+                <Button Text="Taker" Clicked="GoToTaker" Margin="5" BackgroundColor="Blue" TextColor="White"/>
+                <Button Text="Admin" Clicked="GoToLogin" Margin="5" BackgroundColor="Gray"/>
             </StackLayout>
-            <!--Login-->
-            <StackLayout x:Name="LoginScreen" IsVisible="Hidden">
-                <Label Text="Login" FontSize="Title" />
-                <Label Text="Username" FontSize="Default" />
-                <Entry x:Name="username" />
-                <Label Text="Login" FontSize="Default" />
-                <Entry x:Name="password" />
-                <Button Text="Login" Clicked="LoginClk" Margin="5"/>
-                <Button Text="Go back" Clicked="Exit" Margin="5"/>
+            <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+            <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+            <!--Login Screen-->
+            <StackLayout x:Name="LoginScreen" IsVisible="Hidden" WidthRequest="500" HeightRequest="700" VerticalOptions="Center" HorizontalOptions="Center">
+                <Label Text="Login" FontSize="Title" Margin="5" FontAttributes="Bold"/>
+                <Label Text="Username" FontSize="Default" Margin="5"/>
+                <Entry x:Name="username" Margin="5"/>
+                <Label Text="Password" FontSize="Default" Margin="5"/>
+                <Entry x:Name="password" Margin="5"/>
+                <Button Text="Login" Clicked="LoginBtnClk" Margin="5"  BackgroundColor="Blue" TextColor="White"/>
+                <Button Text="Go back" Clicked="Exit" Margin="5" BackgroundColor="Gray"/>
             </StackLayout>
-            <!--Taker-->
-            <StackLayout x:Name="TakerScreen" IsVisible="Hidden">
-                <Label Text="Takers" FontSize="Title" />
-                <Label Text="Enter your fullname" FontSize="Default" />
-                <Entry x:Name="TakerName"/>
-                <Label Text="Select Level" FontSize="Default" />
-                <Picker x:Name="LevePick">
+            <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+            <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+            <!--Cat Takers Screen-->
+            <StackLayout x:Name="TakerScreen" IsVisible="Hidden" WidthRequest="500" HeightRequest="700" VerticalOptions="Center" HorizontalOptions="Center">
+                <Label Text="CAT TAKERS" FontSize="Title" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                <Label Text="Enter your fullname" FontSize="Default" Margin="5"/>
+                <Entry x:Name="TakerFn" Margin="5"/>
+                <Label Text="Select Education Level" FontSize="Default" Margin="5" />
+                <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+                <!--Dropdown for Education level-->
+                <Picker x:Name="SelectLevel" Margin="5">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
-                            <x:String>Grade 12</x:String>
-                            <x:String>ALS</x:String>
+                            <x:String>Grade 12 Student</x:String>
+                            <x:String>ALS/Accelerated Student</x:String>
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
-                <Label Text="Select Degree Program" FontSize="Default" />
-                <Picker x:Name="CollegePick" >
+                <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+                <Label Text="Select Degree Program" FontSize="Default" Margin="5"/>
+                <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+                <!--Dropdown for Collage name-->
+                <Picker x:Name="SelectCollege" Margin="5">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}" >
-                            <x:String>BACHELOR OF SCIENCE IN AGRICULTURE</x:String>
-                            <x:String>BACHELOR OF SCIENCE IN ACCOUNTING INFORMATION SYSTEM</x:String>
-                            <x:String>BACHELOR OF SCIENCE IN CRIMINOLOGY</x:String>
-                            <x:String>BACHELOR OF SCIENCE IN HOSPITALITY MANAGEMENT</x:String>
-                            <x:String>BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY</x:String>
+                            <x:String>BS HOSPITALITY MANAGEMENT</x:String>
+                            <x:String>BS IN INFORMATION TECHNOLOGY</x:String>
                             <x:String>BACHELOR OF ELEMENTARY EDUCATION</x:String>
                             <x:String>BACHELOR OF SECONDARY EDUCATION</x:String>
+                            <x:String>BS IN AGRICULTURE</x:String>
+                            <x:String>BS IN ACCOUNTING INFORMATION SYSTEM</x:String>
+                            <x:String>BS IN CRIMINOLOGY</x:String>
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
-                <Button Text="Proceed " Clicked="Submit" Margin="5 "/>
-                <Button Text="Exit" Clicked="Exit" BackgroundColor="red" TextColor="White" Margin="5"/>
+                <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+                <Button Text="Proceed " Clicked="Submit" Margin="5"  BackgroundColor="Blue" TextColor="White"/>
+                <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+                <Button Text="Exit" Clicked="Exit" BackgroundColor="red" TextColor="White" Margin="5" AnchorX="500" BorderColor="White"/>
             </StackLayout>
-            <!--admin-->
+            <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+            <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+            <!--Cat Staff Screen-->
             <StackLayout x:Name="AdminScreen" IsVisible="Hidden">
-                <Label Text="Admin" FontSize="Title"/>
-                
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Label Text="ID" FontAttributes="Bold" Grid.Column="1"/>
-                        <Label Text="Fullname" FontAttributes="Bold" Grid.Column="2"/>
-                        <Label Text="Level" FontAttributes="Bold" Grid.Column="3"/>
-                        <Label Text="College" FontAttributes="Bold" Grid.Column="4"/>
-                    </Grid>
-             
-                <ListView x:Name="dataListView">
+                <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+                <Label Text="Admin" FontSize="Title" Margin="5"/>
+                <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+                <Label Text="Cat takers" Margin="5"/>
+                <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+                    <Label Text="ID" FontAttributes="Bold" Grid.Column="1"/>
+                    <Label Text="Fullname" FontAttributes="Bold" Grid.Column="2"/>
+                    <Label Text="Education Level" FontAttributes="Bold" Grid.Column="3"/>
+                    <Label Text="Choosen College " FontAttributes="Bold" Grid.Column="4"/>
+                </Grid>
+                <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+                <!--List of taker info-->
+                <ListView x:Name="dataListView" Margin="5">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <Grid Padding="5">
+                                    <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="*"/>
@@ -88,19 +107,23 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-
+                                    <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
                                     <Label Text="{Binding Id}" Grid.Column="1"/>
                                     <Label Text="{Binding Taker}" Grid.Column="2"/>
                                     <Label Text="{Binding LevelPick}" Grid.Column="3"/>
                                     <Label Text="{Binding CollegePick}" Grid.Column="4"/>
+                                    <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Text="Exit" Clicked="Exit" BackgroundColor="red" TextColor="White" Margin="5"/>
+                <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
+                <Button Text="Exit" Clicked="Exit" BackgroundColor="red" TextColor="White" Margin="5" WidthRequest="150" FlexLayout.AlignSelf="Start"/>
+                <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
             </StackLayout>
         </VerticalStackLayout>
     </ScrollView>
-
+    <!--By: Kim Terrence Quines | Activity 1 | IT-322-->
 </ContentPage>
+<!--By: Kim Terrence Quines | Activity 1 | IT-322-->   

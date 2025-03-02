@@ -1,5 +1,6 @@
 ﻿namespace Activity_1
 {
+    //By: Kim Terrence Quines | Activity 1 | IT-322
     public partial class MainPage : ContentPage
     {
         private List<DataItem> inputList = new();
@@ -8,14 +9,41 @@
         {
             InitializeComponent();
         }
-        private void LoginClk(object sender, EventArgs e)
+        //By: Kim Terrence Quines | Activity 1 | IT-322
+        private void GoToTaker(object sender, EventArgs e) //Show taker screen
         {
-            if(username.Text == "admin")
+            TakerScreen.IsVisible = true;
+            LandingSreen.IsVisible = false;
+            AdminScreen.IsVisible = false;
+        }
+        //By: Kim Terrence Quines | Activity 1 | IT-322
+        private void GoToLogin(object sender, EventArgs e) //Show login screen for admin
+        {
+            LoginScreen.IsVisible = true;
+            LandingSreen.IsVisible = false;
+            AdminScreen.IsVisible = false;
+            TakerScreen.IsVisible = false;
+        }
+        //By: Kim Terrence Quines | Activity 1 | IT-322
+        private void LoginBtnClk(object sender, EventArgs e) //Triger login button to redirect to admin screen  use "admin" as username and password
+        {
+            if (username.Text == "admin")
             {
-              if(password.Text == "admin")
+                if (!string.IsNullOrWhiteSpace(password.Text))
                 {
-                    AdminScreen.IsVisible = true;
-                    LoginScreen.IsVisible = false;
+                    if (password.Text == "admin")
+                    {
+                        AdminScreen.IsVisible = true;
+                        LoginScreen.IsVisible = false;
+                    }
+                    else
+                    {
+                        DisplayAlert("Warning", "Wrong Password", "OK");
+                    }
+                }
+                else
+                {
+                    DisplayAlert("Warning", "Enter Password", "OK");
                 }
             }
             else
@@ -23,39 +51,26 @@
                 DisplayAlert("Warning", "Username not found", "OK");
             }
         }
-        private void GoTaker(object sender, EventArgs e)
+        //By: Kim Terrence Quines | Activity 1 | IT-322
+        private void Exit(object sender, EventArgs e) //Go back to Landing Screen
         {
-            TakerScreen.IsVisible = true;
-            WelcomeSreen.IsVisible = false;
-            AdminScreen.IsVisible = false;
-        }
-        private void GoLogin(object sender, EventArgs e)    
-        {
-            LoginScreen.IsVisible = true;
-            WelcomeSreen.IsVisible = false;
-            AdminScreen.IsVisible = false;
-            TakerScreen.IsVisible = false;
-        }
-        private void Exit(object sender, EventArgs e)
-        {
-            WelcomeSreen.IsVisible = true;
+            LandingSreen.IsVisible = true;
             TakerScreen.IsVisible = false;
             LoginScreen.IsVisible = false;
             AdminScreen.IsVisible = false;
         }
-        private void Submit(object sender, EventArgs e)
+        //By: Kim Terrence Quines | Activity 1 | IT-322
+        private void Submit(object sender, EventArgs e) // Submit takers info
         {
-            //  String college = picker1.SelectedItem.ToString();
-            // DisplayAlert("Note", college, "KOi");
 
-            if (!string.IsNullOrWhiteSpace(TakerName.Text))
+            if (!string.IsNullOrWhiteSpace(TakerFn.Text) && SelectCollege.SelectedItem != null && SelectLevel.SelectedItem != null)
             {
                 var item = new DataItem
                 {
                     Id = idCounter++,
-                    Taker = TakerName.Text,
-                    CollegePick = CollegePick.SelectedItem.ToString(),
-                    LevelPick = LevePick.SelectedItem.ToString()
+                    TakerFn = TakerFn.Text,
+                    SelectCollege = SelectCollege.SelectedItem.ToString(),
+                    SelectLevel = SelectLevel.SelectedItem.ToString()
                 };
 
                 inputList.Add(item);
@@ -63,23 +78,32 @@
                 dataListView.ItemsSource = null;
                 dataListView.ItemsSource = inputList;
 
-                TakerName.Text = "";
-                CollegePick.SelectedItem = null;
-                LevePick.SelectedItem = null;
+                TakerFn.Text = "";
+                SelectCollege.SelectedItem = null;
+                SelectLevel.SelectedItem = null;
+
+                DisplayAlert("Attention", "Form Submitted", "OK");
+
+                LandingSreen.IsVisible = true;
+                TakerScreen.IsVisible = false;
+                LoginScreen.IsVisible = false;
+                AdminScreen.IsVisible = false;
             }
             else
             {
-                DisplayAlert("Note", "Empty", "KOi");
+                DisplayAlert("Warning", "Field Must Not Empty", "OK");
             }
 
         }
+        //By: Kim Terrence Quines | Activity 1 | IT-322
         public class DataItem
         {
             public int Id { get; set; }
-            public string Taker { get; set; }
-            public string CollegePick { get; set; }
-            public string LevelPick { get; set; }
+            public string TakerFn { get; set; }
+            public string SelectCollege { get; set; }
+            public string SelectLevel { get; set; }
         }
     }
 
 }
+//By: Kim Terrence Quines | Activity 1 | IT-322
